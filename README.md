@@ -1,6 +1,6 @@
 # Desafio 06. Aplicação com React Native
 
-Projeto React Native com a função de adicionar usuários do github no qual é a aplicação consome a API do mesmo com AXIOS.
+Projeto React Native com a função de adicionar usuários do github no qual a aplicação consome a API do mesmo utilizando AXIOS.
 
 ## Funcionalidades
 
