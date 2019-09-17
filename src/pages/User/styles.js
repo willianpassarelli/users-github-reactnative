@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
 
 export const Container = styled.View`
   flex: 1;
@@ -49,6 +50,8 @@ export const Starred = styled.View`
   align-items: center;
 `;
 
+export const StarredButton = styled.TouchableOpacity``;
+
 export const OwnerAvatar = styled.Image`
   height: 42px;
   width: 42px;
@@ -73,4 +76,19 @@ export const Author = styled.Text`
   font-size: 13px;
   color: #666;
   margin-top: 2px;
+`;
+
+export const ShimmerText = styled(ShimmerPlaceHolder)`
+  margin-top: 10px;
+`;
+
+export const ShimmerBio = styled(ShimmerPlaceHolder)`
+  margin-top: 5px;
+  width: 100%;
+`;
+
+export const ShimmerAvatar = styled(ShimmerPlaceHolder)`
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
 `;
