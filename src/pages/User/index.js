@@ -10,7 +10,6 @@ import {
   Bio,
   Stars,
   Starred,
-  StarredButton,
   OwnerAvatar,
   Info,
   Title,
@@ -18,6 +17,7 @@ import {
   ShimmerText,
   ShimmerBio,
   ShimmerAvatar,
+  ShimmerOwnerAvatar,
 } from './styles';
 
 export default class User extends Component {
@@ -40,6 +40,8 @@ export default class User extends Component {
   };
 
   async componentDidMount() {
+    const { visible } = this.state;
+    setTimeout(() => this.setState({ visible: !visible }), 2500);
     this.load();
   }
 
@@ -52,10 +54,12 @@ export default class User extends Component {
       params: { page },
     });
 
+    // console.tron.log('link', response.headers.link);
+    // console.tron.log('next', response.headers.link.includes('next'));
+
     this.setState({
       stars: page >= 2 ? [...stars, ...response.data] : response.data,
       page,
-      visible: true,
       refreshing: false,
     });
   };
@@ -106,19 +110,23 @@ export default class User extends Component {
           onEndReached={this.loadMore}
           keyExtractor={star => String(star.id)}
           renderItem={({ item }) => (
-            <StarredButton
+            <Starred
               onPress={() => {
                 this.handleNavigate(item);
               }}
             >
-              <Starred>
+              <ShimmerOwnerAvatar autoRun visible={visible}>
                 <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
-                <Info>
+              </ShimmerOwnerAvatar>
+              <Info>
+                <ShimmerText autoRun visible={visible}>
                   <Title>{item.name}</Title>
+                </ShimmerText>
+                <ShimmerText autoRun visible={visible}>
                   <Author>{item.owner.login}</Author>
-                </Info>
-              </Starred>
-            </StarredButton>
+                </ShimmerText>
+              </Info>
+            </Starred>
           )}
         />
       </Container>

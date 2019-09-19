@@ -41,7 +41,7 @@ export const Stars = styled.FlatList.attrs({
   margin-top: 20px;
 `;
 
-export const Starred = styled.View`
+export const Starred = styled.TouchableOpacity`
   background: #f5f5f5;
   border-radius: 4px;
   padding: 10px 15px;
@@ -49,8 +49,6 @@ export const Starred = styled.View`
   flex-direction: row;
   align-items: center;
 `;
-
-export const StarredButton = styled.TouchableOpacity``;
 
 export const OwnerAvatar = styled.Image`
   height: 42px;
@@ -79,7 +77,7 @@ export const Author = styled.Text`
 `;
 
 export const ShimmerText = styled(ShimmerPlaceHolder)`
-  margin-top: 10px;
+  margin-top: 5px;
 `;
 
 export const ShimmerBio = styled(ShimmerPlaceHolder)`
@@ -90,5 +88,12 @@ export const ShimmerBio = styled(ShimmerPlaceHolder)`
 export const ShimmerAvatar = styled(ShimmerPlaceHolder)`
   width: 100px;
   height: 100px;
+  margin-bottom: 5px;
+  border-radius: 50px;
+`;
+
+export const ShimmerOwnerAvatar = styled(ShimmerPlaceHolder)`
+  width: 42px;
+  height: 42px;
   border-radius: 50px;
 `;
